@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Jun 2021 09:06:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Reusing and Recycling Isn&#x27;t Working - Here&#x27;s Why We Need to Reduce</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preload" href="../assets/css/appfadb.css?v=62afab51cd" as="style" />
+    <link rel="preload" href="../assets/js/manifestfadb.js?v=62afab51cd" as="script" />
+    <link rel="preload" href="../assets/js/vendor/content-api.minfadb.js?v=62afab51cd" as="script" />
+    <link rel="preload" href="../assets/js/vendorfadb.js?v=62afab51cd" as="script" />
+    <link rel="preload" href="../assets/js/appfadb.js?v=62afab51cd" as="script" />
+    <link rel="preconnect" href="https://polyfill.io/">
+    <link rel="dns-prefetch" href="https://polyfill.io/">
+
+      <link rel="preload" href="../assets/css/postfadb.css?v=62afab51cd" as="style" />
+  <link rel="preload" href="../assets/js/postfadb.js?v=62afab51cd" as="script" />
+
+
+    <style>
+      /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
+
+      /* source-sans-pro-regular */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-regularfadb.woff2?v=62afab51cd") format('woff2'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-regularfadb.woff?v=62afab51cd") format('woff');
+      }
+
+      /* source-sans-pro-600 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-600fadb.woff2?v=62afab51cd") format('woff2'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-600fadb.woff?v=62afab51cd") format('woff');
+      }
+
+      /* source-sans-pro-700 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-700fadb.woff2?v=62afab51cd") format('woff2'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-700fadb.woff?v=62afab51cd") format('woff');
+      }
+
+      /* iconmoon */
+      @font-face {
+        font-family: 'icomoon';
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        src: url("../assets/fonts/icomoon/icomoonde6f.eot?aoz2mo?v=62afab51cd");
+        src: url("../assets/fonts/icomoon/icomoondda9.eot?aoz2mo#iefix?v=62afab51cd") format('embedded-opentype'),
+        url("../assets/fonts/icomoon/icomoonde6f.ttf?aoz2mo?v=62afab51cd") format('truetype'),
+        url("../assets/fonts/icomoon/icomoonde6f.woff?aoz2mo?v=62afab51cd") format('woff'),
+        url("../assets/fonts/icomoon/icomoondda9.svg?aoz2mo#icomoon?v=62afab51cd") format('svg');
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/appfadb.css?v=62afab51cd" media="screen" />
+
+      <link rel="stylesheet" type="text/css" href="../assets/css/postfadb.css?v=62afab51cd" media="screen" />
+
+
+      <style>
+    .m-hero__picture {
+      background-image: url(../content/images/size/w2000/2020/11/BlogHeader_fire.png);
+    }
+  
+    @media(max-width: 1000px) {
+      .m-hero__picture {
+        background-image: url(../content/images/size/w1000/2020/11/BlogHeader_fire.png);
+      }
+    }
+  
+    @media(max-width: 600px) {
+      .m-hero__picture {
+        background-image: url(../content/images/size/w600/2020/11/BlogHeader_fire.png);
+      }
+    }
+  </style>
+
+
+    <meta name="description" content="There, we said it. But hear us out. Your planet depends on it." />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/amp/" />
+    
+    <meta property="og:site_name" content="Hmlet Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Reusing and Recycling Isn&#x27;t Working - Here&#x27;s Why We Need to Reduce" />
+    <meta property="og:description" content="There, we said it. But hear us out. Your planet depends on it." />
+    <meta property="og:url" content="https://hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/" />
+    <meta property="og:image" content="https://hmlet.com/blog/content/images/2020/11/BlogHeader_fire.png" />
+    <meta property="article:published_time" content="2020-11-16T18:01:04.000Z" />
+    <meta property="article:modified_time" content="2020-12-02T06:57:57.000Z" />
+    <meta property="article:tag" content="Sustainability" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/hmletSG" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reusing and Recycling Isn&#x27;t Working - Here&#x27;s Why We Need to Reduce" />
+    <meta name="twitter:description" content="There, we said it. But hear us out. Your planet depends on it." />
+    <meta name="twitter:url" content="https://hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/" />
+    <meta name="twitter:image" content="https://hmlet.com/blog/content/images/2020/11/BlogHeader_fire.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Team Hmlet" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Sustainability" />
+    <meta name="twitter:site" content="@hmlet_official" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1000" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hmlet Blog",
+        "url": "https://hmlet.com/blog/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://hmlet.com/blog/content/images/2020/10/logo_black.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Team Hmlet",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://hmlet.com/blog/content/images/2020/11/hmlet_symbol_blue_cmyk.jpg",
+            "width": 1055,
+            "height": 1055
+        },
+        "url": "https://hmlet.com/blog/author/hmlet/",
+        "sameAs": []
+    },
+    "headline": "Reusing and Recycling Isn&#x27;t Working - Here&#x27;s Why We Need to Reduce",
+    "url": "https://hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/",
+    "datePublished": "2020-11-16T18:01:04.000Z",
+    "dateModified": "2020-12-02T06:57:57.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://hmlet.com/blog/content/images/2020/11/BlogHeader_fire.png",
+        "width": 2000,
+        "height": 1000
+    },
+    "keywords": "Sustainability",
+    "description": "There, we said it. But hear us out. Your planet depends on it.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hmlet.com/blog/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.36" />
+    <link rel="alternate" type="application/rss+xml" title="Hmlet Blog" href="https://hmlet.com/blog/rss/" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mulish&amp;display=swap" rel="stylesheet">
+
+<style>
+    /* https://github.com/eddiesigner/liebling/issues/98 */
+    /* below block disables dark mode */
+    :root,
+  [data-theme="light"],
+  [data-theme="dark"],
+  :root:not([data-theme="light"]) {
+    --background-color: #fff;
+    --primary-foreground-color: #4a4a4a;
+    --secondary-foreground-color: #000;
+    --primary-subtle-color: #04aeee;
+    --secondary-subtle-color: #f4f8fd;
+    --titles-color: #333;
+    --link-color: #293951;
+    --primary-border-color: #9b9b9b;
+    --secondary-border-color: aliceblue;
+    --article-shadow-normal: 0 10px 10px rgba(0,0,0,0.08);
+    --article-shadow-hover: 0 4px 60px 0 rgba(0,0,0,0.2);
+    --transparent-background-color: rgba(255,255,255,0.99);
+    --footer-background-color: #293951;
+    --submenu-shadow-color-opacity: 0.25;
+    --button-shadow-color-normal: rgba(108, 108, 108, 0.2);
+    --button-shadow-color-hover: rgba(108, 108, 108, 0.3);
+    --toggle-darkmode-button-color: #fff;
+    --table-background-color-odd: #fafafa;
+    --table-head-border-bottom: #e2e2e2;
+  }
+    
+    h1 { font-family: 'IBM Plex Serif', sans-serif; font-size: 42px !important; font-weight: 500 !important; }
+    h2 { font-family: 'IBM Plex Serif', sans-serif; font-size: 32px !important; font-weight: 500 !important; }
+    h3 { font-family: 'IBM Plex Serif', sans-serif; font-size: 25px !important; font-weight: 500 !important; }
+    p, h4 { font-family: 'IBM Plex Serif', sans-serif; font-size: 20px !important; }
+    header { padding-top: 21.5px !important; padding-bottom: 21.5px !important; }
+    .m-logo { height: 40px !important; }
+    /* dropdown menu */
+    .tippy-tooltip { background: #fff !important; box-shadow: 3px 3px 30px rgba(0,0,0,.05) !important; mix-blend-mode: multiply !important; }
+    .tippy-arrow { border-color: #fff !important; }
+    .m-secondary-menu li { font-family: 'Mulish', sans-serif !imporant; color: #274C82 !important; }
+    /* dropdown menu end */
+    .m-hero-title { font-family: 'IBM Plex Serif', sans-serif; font-size: 58px !important; font-weight: 500 !important; }
+	.m-hero-description { font-family: 'Mulish', sans-serif; font-size: 16px !important; }
+    /* top navigation bar */
+	.nav-current, .m-nav a, .nav-tag { font-family: 'Mulish', sans-serif; font-size: 16px !important; color: #251F42 !important; }
+	.m-toggle-darkmode { visibility: hidden; }
+    /* top navigation bar end */
+	/*.m-article-card__author { display: none; }*/
+	.m-article-card__tag { font-family: 'IBM Plex Serif', sans-serif; font-size: 12px !important; color: #274C82 !important; text-transform: uppercase; }
+	.m-article-card__title { font-family: 'Mulish', sans-serif; font-size: 20px !important; color: #505050 !important; }
+	.m-article-card__timestamp { font-family: 'Mulish', sans-serif; font-size: 12px !important; color: #505050 !important; }
+	.m-article-card { border-color: #EFE9E2; }
+	.m-article-card::before { box-shadow: none; }
+	.m-pagination__text { font-family: 'Mulish', sans-serif; font-size: 16px !important; color: #505050 !important; }
+	.m-heading__title { font-family: 'IBM Plex Serif', sans-serif; font-size: 42px !important; color: #251F42 !important; }
+	.m-heading__meta, .m-heading__meta span, .m-heading__meta a { font-family: 'IBM Plex Serif', sans-serif; font-size: 12px !important; color: #274C82 !important; text-transform: uppercase; }
+	.l-post-content h3 { font-family: 'Mulish', sans-serif; font-size: 25px !important; color: #505050 !important; font-weight: bold !important; }
+    .l-post-content h2, .l-post-content h4 { font-family: 'Mulish', sans-serif; color: #505050 !important; }
+    .l-post-content h2 { font-weight: bold !important; }
+	.l-post-content p { font-family: 'Mulish', sans-serif; font-size: 20px !important; color: #505050 !important; }
+	.l-post-content figcaption { font-family: 'Mulish', sans-serif; font-size: 16px !important; }
+	.l-post-content circle { stroke: #274C82 !important; }
+	.m-submenu-title { font-family: 'IBM Plex Serif', sans-serif; font-size: 25px !important; color: #251F42 !important }
+	.m-tags li a { font-family: 'IBM Plex Serif', sans-serif; font-size: 16px !important; color: #274C82 !important; font-weight: 500 !important; }
+	/*.m-author,*/ .m-nav__right, .m-recent-articles, .submenu-option { display: none; }
+	.m-section-title { font-family: 'IBM Plex Serif', sans-serif; font-size: 25px !important; color: #251F42 !important }
+	/* footer */
+    .m-footer { background-color: #F9F6F3; !important }
+	.m-footer-social a span { color: #274C82 !important; }
+	.m-header.mobile-menu-opened { background-color: #FCFBF9; }
+    .m-footer-copyright span:nth-child(2), .m-footer-copyright span:nth-child(3), .jslicense { display: none; }
+	.m-recommended-articles h3+p { font-family: 'Mulish', sans-serif; font-size: 16px !important; white-space: pre-wrap; }
+    /* footer end */
+	@media only screen and (max-width: 47rem) {
+      	h1 { font-size: 34px !important; }
+        h2 { font-size: 28px !important; }
+        h3 { font-size: 22px !important; }
+        p, h4 { font-size: 18px !important; }
+        header { padding-top: 15px !important; padding-bottom: 15px !important; }
+        .m-hero-title { font-size: 45px !important; }
+        .m-heading__title { font-size: 34px !important; }
+        .l-post-content h3 { font-size: 22px !important; }
+        .m-section-title { font-size: 22px !important; }
+        .l-post-content p { font-size: 18px !important; }
+        .m-hero-description { font-size: 14px !important; }
+		.m-pagination__text { font-size: 14px !important; }
+        .l-post-content figcaption { font-size: 14px !important; }
+        .m-submenu-title { font-size: 18px !important; }
+      	.m-recent-article__title { font-family: 'Mulish', sans-serif; font-size: 14px !important; }
+  	  	.m-tags li a { font-family: 'IBM Plex Serif', sans-serif; font-size: 22px !important; color: #251F42 !important }
+  	}
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-76732988-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-76732988-1');
+</script>
+<!-- Change "along with" text in author section at bottom of page -->
+<script>
+    window.onload = function() {
+        const alongWith = document.getElementsByClassName("in-author-along-with")
+    	if(alongWith && alongWith.length) {
+        	const _html = alongWith.item(0).innerHTML
+        	alongWith.item(0).innerHTML = _html.replace("Among with", "With additional support from")
+    	}
+    }    
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W5CFVF6');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W5CFVF6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <script>
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      const ghostHost = "https://hmlet.com/blog"
+      // @license-end
+    </script>
+  </head>
+  <body class="post-template tag-sustainability">
+    
+
+
+
+  
+<header class="m-header with-picture js-header">
+  <div class="m-mobile-topbar" data-aos="fade-down">
+    <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+      <span class="icon-menu" aria-hidden="true"></span>
+    </button>
+      <a href="https://hmlet.com/blog" class="m-logo in-mobile-topbar">
+        <img src="../content/images/2020/10/logo_black.png" alt="Hmlet Blog">
+      </a>
+    <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav js-main-nav">
+          <nav class="m-nav__left js-main-nav-left" role="navigation" aria-label="Main menu">
+            <ul>
+                <li class="only-desktop">
+                  <a href="https://hmlet.com/blog" class="m-logo">
+                    <img src="../content/images/2020/10/logo_black.png" alt="Hmlet Blog">
+                  </a>
+                </li>
+                
+    <li class="nav-main">
+      <a href="../index.html">Main</a>
+    </li>
+    <li class="nav-find-a-home">
+      <a href="../../en1373.html?utm_source=blog&amp;utm_content=headerMenuLink">Find a Home</a>
+    </li>
+    <li class="nav-australia">
+      <a href="../tag/australia/index.html">Australia</a>
+    </li>
+    <li class="nav-hong-kong">
+      <a href="../tag/hong-kong/index.html">Hong Kong</a>
+    </li>
+    <li class="nav-japan">
+      <a href="../tag/japan/index.html">Japan</a>
+    </li>
+    <li class="nav-singapore">
+      <a href="../tag/singapore/index.html">Singapore</a>
+    </li>
+
+                <li class="more">
+                  <span>
+                    <a href="javascript:void(0);" class="js-open-secondary-menu">
+                      More
+                      <span class="icon-chevron-down" aria-hidden="true"></span>
+                    </a>
+                  </span>
+                </li>
+              <li class="submenu-option js-submenu-option">
+                <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Open submenu">
+                  <span class="icon-more" aria-hidden="true"></span>
+                </button>
+                <div class="m-submenu js-submenu">
+                  <div class="l-wrapper in-submenu">
+                    <section class="m-recent-articles">
+                      <h3 class="m-submenu-title in-recent-articles">Recent articles</h3>
+                          <div class="glide js-recent-slider">
+                            <div class="glide__track" data-glide-el="track">
+                              <div class="glide__slides">
+                                <div class="glide__slide">
+                                  <a href="../clever-ways-to-reduce-rent/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/06/emerald-hill-LEVEL-2-REGULAR-BEDROOM.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Clever Ways To Reduce Rent">
+                                      Clever Ways To Reduce Rent
+                                    </h3>
+                                    <span class="m-recent-article__date">a day ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../everything-you-need-to-know-about-studio-apartments-in-singapore/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/05/Meero-Meero-SG_SIN_74TP_03-40B--Studio-_LIVING-ROOM2---.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Everything You Need To Know About Studio Apartments In Singapore">
+                                      Everything You Need To Know About Studio Apartments In Singapore
+                                    </h3>
+                                    <span class="m-recent-article__date">5 days ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../work-from-home-essentials/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/05/keqing.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="WFH Essentials – For when Working From Home, Isn&#x27;t Working">
+                                      WFH Essentials – For when Working From Home, Isn&#x27;t Working
+                                    </h3>
+                                    <span class="m-recent-article__date">11 days ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../5-ways-to-reduce-stress-when-renting-your-apartment/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/05/michal-balog-66NaCdBrkCs-unsplash.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="5 Ways To Reduce Stress When Apartment Hunting">
+                                      5 Ways To Reduce Stress When Apartment Hunting
+                                    </h3>
+                                    <span class="m-recent-article__date">22 days ago</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </section>
+                    <section class="m-tags">
+                      <h3 class="m-submenu-title">Tags</h3>
+                        <ul>
+                            <li>
+                              <a href="../tag/australia/index.html">Australia</a>
+                            </li>
+                            <li>
+                              <a href="../tag/coliving/index.html">Coliving</a>
+                            </li>
+                            <li>
+                              <a href="../tag/community/index.html">Community</a>
+                            </li>
+                            <li>
+                              <a href="../tag/covid19/index.html">Covid-19</a>
+                            </li>
+                            <li>
+                              <a href="../tag/furniture-rental/index.html">Furniture Rental</a>
+                            </li>
+                            <li>
+                              <a href="../tag/health-wellbeing/index.html">Health &amp; Wellbeing</a>
+                            </li>
+                            <li>
+                              <a href="../tag/homes/index.html">Homes</a>
+                            </li>
+                            <li>
+                              <a href="../tag/hong-kong/index.html">Hong Kong</a>
+                            </li>
+                        </ul>
+                    </section>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="m-nav__right">
+            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+              <span class="icon-search" aria-hidden="true"></span>
+            </button>
+            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Toggle dark mode" tabindex="0">
+              <label for="toggle-darkmode" class="sr-only">
+                Toggle dark mode
+              </label>
+              <input id="toggle-darkmode" type="checkbox" class="js-toggle-darkmode">
+              <div>
+                <span class="icon-moon moon" aria-hidden="true"></span>
+                <span class="icon-sunny sun" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div id="secondary-navigation-template" style="display: none;">
+      
+  <ul class="m-secondary-menu">
+      <li class="nav-humans-of-hmlet">
+        <a href="../tag/humans-of-hmlet/index.html">Humans of Hmlet</a>
+      </li>
+      <li class="nav-neighbourhood-guides">
+        <a href="../tag/neighbourhood-guides/index.html">Neighbourhood Guides</a>
+      </li>
+      <li class="nav-roomie-guides">
+        <a href="../tag/roomie-guides/index.html">Roomie Guides</a>
+      </li>
+      <li class="nav-coliving">
+        <a href="../tag/coliving/index.html">Coliving</a>
+      </li>
+      <li class="nav-sustainability">
+        <a href="../tag/sustainability/index.html">Sustainability</a>
+      </li>
+      <li class="nav-health-wellbeing">
+        <a href="../tag/health-wellbeing/index.html">Health &amp; Wellbeing</a>
+      </li>
+      <li class="nav-covid-19">
+        <a href="../tag/covid19/index.html">COVID-19</a>
+      </li>
+      <li class="nav-living-with-pets">
+        <a href="../tag/living-with-pets/index.html">Living with Pets</a>
+      </li>
+  </ul>
+
+    </div>
+</header>
+
+<main class="main-wrap">
+    
+
+  <section class="m-hero with-picture" data-aos="fade">
+    <div class="m-hero__picture in-post"></div>
+    </section>
+  
+  <article>
+    <div class="l-content in-post">
+        <div class="l-wrapper in-post  js-aos-wrapper" data-aos="fade-up"
+          data-aos-delay="300">
+          <div
+            class="l-post-content   js-progress-content">
+            <header class="m-heading">
+              <h1 class="m-heading__title in-post">Reusing and Recycling Isn&#x27;t Working - Here&#x27;s Why We Need to Reduce</h1>
+              <div class="m-heading__meta">
+                  <a href="../tag/sustainability/index.html" class="m-heading__meta__tag">Sustainability</a>
+                  <span class="m-heading__meta__divider" aria-hidden="true">&bull;</span>
+                <span class="m-heading__meta__time">Nov 17, 2020</span>
+              </div>
+            </header>
+            <div class="pos-relative js-post-content">
+              <div class="m-share">
+                <div class="m-share__content js-sticky">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/"
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Facebook">
+                    <span class="icon-facebook" aria-hidden="true"></span>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?text=Reusing%20and%20Recycling%20Isn't%20Working%20-%20Here's%20Why%20We%20Need%20to%20Reduce&amp;url=https://hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/"
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Twitter">
+                    <span class="icon-twitter" aria-hidden="true"></span>
+                  </a>
+                  <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top">
+                    <span class="icon-arrow-top" aria-hidden="true"></span>
+                    <svg aria-hidden="true">
+                      <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <h2 id="there-we-said-it-but-hear-us-out-your-planet-depends-on-it-">There, we said it. But hear us out. Your planet depends on it.</h2><p>Cleaning up after a weekend party and wondering what to do with the leftover greasy pizza boxes and empty packets of chips? Surely, the environmentally-responsible thing to do would be to toss them into the recycling bin, right? Well, not quite.<br><br>Greasy pizza boxes and chips packets are just two of the many items that are often mistaken to be recyclable. Other confusing suspects include foam boxes, Pyrex glassware, and receipts. Unless we’ve got bionic eyes or significant knowledge of identifying the material make-up of things, recycling could very well be a daunting task.<br><br>If you’ve spent much of your life confused while trying to correctly navigate the 3Rs (Reduce, Reuse, and Recycle), we’ve got good news. It turns out, focusing diligently on Reducing alone can result in significant impacts as we strive towards a zero-waste future!</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://hmlet.com/blog/content/images/2020/11/beach.jpg" class="kg-image" alt srcset="https://hmlet.com/blog/content/images/size/w600/2020/11/beach.jpg 600w, https://hmlet.com/blog/content/images/size/w1000/2020/11/beach.jpg 1000w, https://hmlet.com/blog/content/images/2020/11/beach.jpg 1376w" sizes="(min-width: 720px) 720px"><figcaption>Reducing doesn't mean banishing yourself to a remote island to live a hermit life - though island life doesn't sound bad.</figcaption></figure><h3 id="why-reducing-is-better-than-recycling">Why Reducing is Better Than Recycling</h3><p>While recycling helps us feel like we’re not being entirely wasteful and are doing our part, it unfortunately still leaves a significant waste footprint. What we don’t realise is that recycling itself is a complicated business that requires excessive amounts of energy and resources. <br><br><strong>Not Everything you Recycle Gets Recycled</strong><br>Surprised? Yes, not everything you put in the recycling bin gets recycled. Factors such as waste spaces, commodity demands and processing cost often influence the efficacy of recycling. Much of what we think gets recycled ends up in the landfills anyway.<br><br><strong>The Vicious Cycle of Throwaway Culture</strong><br>Throwing a paper coffee cup into a bin that says “Recycle” instead of “General Waste” is good but the waste does not really disappear. The cup will end up in storage somewhere for a long while before it gets processed. Think about how soon you get another coffee cup after just having tossed the previous one into the Recycling bin.<br><br>Throwing things away requires energy. Producing new things also requires energy. If we keep throwing away stuff to make space for new stuff, we’re not really conserving.<br><br><strong>Industries that Contribute to Carbon Emission</strong><br>Agriculture, transportation and manufacturing are some of the sectors responsible for contributing most to carbon emissions. Even the fashion industry emits more carbon than international flights and maritime shipping combined, accounting for 10% of all humanity’s carbon emissions.<br><br>While it may seem like these giant industries are beyond our control, we can truly influence the way things are.<br><br>The answer is in having less.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://hmlet.com/blog/content/images/2020/11/cup.jpg" class="kg-image" alt srcset="https://hmlet.com/blog/content/images/size/w600/2020/11/cup.jpg 600w, https://hmlet.com/blog/content/images/size/w1000/2020/11/cup.jpg 1000w, https://hmlet.com/blog/content/images/2020/11/cup.jpg 1376w" sizes="(min-width: 720px) 720px"><figcaption>Taking stock of what you have is a great wake up call to how much you have and consume.</figcaption></figure><h3 id="reducing-is-the-better-option">Reducing is The Better Option</h3><p>The most effective way to reduce waste is to simply not create it in the first place. We should only use what we need, and avoid excess. Reducing means less waste goes into the landfill and less natural resources are used. This results in lower carbon emissions and pollution.</p><h3 id="coliving-supports-sustainable-living">Coliving Supports Sustainable Living</h3><p>Coliving at Hmlet encourages having less. Through communal sharing and sustainably designed spaces, Hmlet members find it incredibly easy to experience more while owning less! At Hmlet, assets of all kinds are swapped, borrowed and shared from appliances, furnishings, transport and even food -- you name it. When sharing becomes part of living, you don’t have to worry about not having enough. And when you do have extras, you can always find someone in the community to share it with. That way, nothing ever goes to waste!</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://hmlet.com/blog/content/images/2020/11/dinner.jpg" class="kg-image" alt srcset="https://hmlet.com/blog/content/images/size/w600/2020/11/dinner.jpg 600w, https://hmlet.com/blog/content/images/size/w1000/2020/11/dinner.jpg 1000w, https://hmlet.com/blog/content/images/2020/11/dinner.jpg 1376w" sizes="(min-width: 720px) 720px"><figcaption>Start with friends so you can keep each other accountable but have fun with it at the same time.</figcaption></figure><h3 id="here-s-how-to-get-started">Here's How to Get Started</h3><p>We know it’s not easy so let’s start simple. Small, everyday changes in your daily habits don’t cost much but they can certainly make a difference to the environment.</p><p><strong>Energy Consumption at Home</strong><br>1. <strong>Switch it off</strong>! Be it the room light, the washing machine main switch or even the water heater.<br>2. Have a habit of <strong>unplugging appliances</strong> when not in use.<br>3. <strong>Skip the water heater</strong> on humid days and take shorter and cooler showers instead.</p><p><strong>Fashion</strong><br>1. Yes, we know you really want to get that new blouse or that chic pair of earrings. You can, but let’s <strong>limit purchases to only one or two items per month.</strong><br>2. Don’t be afraid to <strong>invest in high-quality pieces</strong> because you are less likely to toss them away after a short period of time.<br>3. <strong>Just swap</strong>. Swapping clothes with others is one way we can experience the joy of having something new without adding to the clutter at all.</p><p><strong>Food</strong><br>1. <strong>Plan ahead</strong>. Meal prepping helps you decide early on ingredients you’d need for the week and ensures you have ready-made meals for those busy nights.<br>2. Nobody likes week-old wilted spinach and mouldy strawberries. <strong>Get fresh produce at varying stages of ripeness</strong>. They’ll store better and you won’t have to worry about them turning bad.<br>3. If you’re struggling to use up the extra goods, <strong>give it away</strong> to neighbours or friends. Somebody’s bound to take the almost over-ripened avocados and half a lettuce head off of you!<br>4. <strong>Freeze it</strong>. For anything and everything including bread, cooked rice, beans, leftover pizzas and vegetables. It prolongs the shelf-life.</p><hr><p>Be it coliving or private accommodation, search for hundreds of rooms and apartments for rent at Hmlet. We’ll help you find a home fuss-free, so you can focus on doing more of what you love. <a href="../../indexcde2.html?utm_source=blog&amp;utm_medium=editorial&amp;utm_campaign=reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce">Get started here.</a></p>
+                <section class="m-tags in-post">
+                  <h3 class="m-submenu-title">Tags</h3>
+                  <ul>
+                      <li>
+                        <a href="../tag/sustainability/index.html" title="Sustainability">Sustainability</a>
+                      </li>
+                  </ul>
+                </section>
+            </div>
+          </div>
+        </div>
+        <section class="m-author">
+          <div class="m-author__content">
+            <div class="m-author__picture">
+              <a href="https://hmlet.com/blog/author/hmlet/" class="m-author-picture" aria-label="Team Hmlet">
+                  <div style="background-image: url(https://hmlet.com/blog/content/images/2020/11/hmlet_symbol_blue_cmyk.jpg);"></div>
+              </a>
+            </div>
+            <div class="m-author__info">
+              <h4 class="m-author__name">
+                <a href="https://hmlet.com/blog/author/hmlet/">Team Hmlet</a>
+              </h4>
+                <p class="m-author__bio">Putting together the best reads for you. If you&#x27;d like to share your thoughts and ideas or collaborate, drop us an email at marketing@hmlet.com.</p>
+              <ul class="m-author-links">
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="m-recommended">
+          <div class="l-wrapper in-recommended">
+            <h3 class="m-section-title in-recommended">Recommended for you</h3>
+            <div class="m-recommended-articles">
+              <div class="m-recommended-slider glide js-recommended-slider">
+                <div class="glide__track" data-glide-el="track">
+                  <div class="glide__slides">
+                    
+    <div class="m-recommended-slider__item glide__slide">
+  <article class="m-article-card  post tag-sustainability tag-singapore tag-interior-design tag-furniture-rental">
+    <div class="m-article-card__picture">
+      <a href="../why-short-term-furniture-rental-singapore/index.html" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="../content/images/size/w600/2020/11/Life_01--1-.jpg" loading="lazy" alt="">
+      <a href="https://hmlet.com/blog/author/hmlet/" class="m-article-card__author js-tooltip" aria-label="Team Hmlet" data-tippy-content="Posted by Team Hmlet ">
+          <div style="background-image: url(../content/images/size/w100/2020/11/hmlet_symbol_blue_cmyk.jpg);"></div>
+      </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="../tag/sustainability/index.html" class="m-article-card__tag">Sustainability</a>
+      <a href="../why-short-term-furniture-rental-singapore/index.html" class="m-article-card__info-link" aria-label="Here&#x27;s Why Furniture Rental is Worth Exploring">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Here&#x27;s Why Furniture Rental is Worth Exploring">
+            Here&#x27;s Why Furniture Rental is Worth Exploring
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>7 months ago</span>
+          <span>&bull;</span>
+          <span>4 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+    </div>
+    <div class="m-recommended-slider__item glide__slide">
+  <article class="m-article-card  post tag-sustainability tag-covid19 tag-lifestyle">
+    <div class="m-article-card__picture">
+      <a href="../sustainable-ethical-consumption-christmas-gift-ideas-2020/index.html" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="../content/images/size/w600/2020/12/Copy-of-HmletBlog_Cover--2-.png" loading="lazy" alt="">
+      <a href="../author/yilynnchan/index.html" class="m-article-card__author js-tooltip" aria-label="Yilynn Chan" data-tippy-content="Posted by Yilynn Chan ">
+          <div style="background-image: url(../content/images/size/w100/2020/12/Green-and-White-Vintage-Christmas-Invitation.png);"></div>
+      </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="../tag/sustainability/index.html" class="m-article-card__tag">Sustainability</a>
+      <a href="../sustainable-ethical-consumption-christmas-gift-ideas-2020/index.html" class="m-article-card__info-link" aria-label="We Challenge You To Buy Better This Festive Season and Beyond">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="We Challenge You To Buy Better This Festive Season and Beyond">
+            We Challenge You To Buy Better This Festive Season and Beyond
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>6 months ago</span>
+          <span>&bull;</span>
+          <span>4 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+    </div>
+    <div class="m-recommended-slider__item glide__slide">
+  <article class="m-article-card  post tag-hong-kong tag-neighbourhood-guides tag-sustainability">
+    <div class="m-article-card__picture">
+      <a href="../best-plant-based-food-spots-hongkong/index.html" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="https://images.unsplash.com/photo-1520072959219-c595dc870360?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=2000&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ" loading="lazy" alt="">
+      <a href="https://hmlet.com/blog/author/hmlet/" class="m-article-card__author js-tooltip" aria-label="Team Hmlet" data-tippy-content="Posted by Team Hmlet ">
+          <div style="background-image: url(../content/images/size/w100/2020/11/hmlet_symbol_blue_cmyk.jpg);"></div>
+      </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="../tag/hong-kong/index.html" class="m-article-card__tag">Hong Kong</a>
+      <a href="../best-plant-based-food-spots-hongkong/index.html" class="m-article-card__info-link" aria-label="The Best Plant-Based Food Spots in Hong Kong">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="The Best Plant-Based Food Spots in Hong Kong">
+            The Best Plant-Based Food Spots in Hong Kong
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>7 months ago</span>
+          <span>&bull;</span>
+          <span>6 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+    </div>
+                  </div>
+                </div>
+                <div data-glide-el="controls" class="glide__arrows js-controls">
+                  <button data-glide-dir="<" class="m-icon-button filled in-recommended-articles glide-prev" aria-label="Previous">
+                    <span class="icon-arrow-left" aria-hidden="true"></span>
+                  </button>
+                  <button data-glide-dir=">" class="m-icon-button filled in-recommended-articles glide-next" aria-label="Next">
+                    <span class="icon-arrow-right" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+  </article>
+</main>
+
+
+
+    
+<div class="m-search js-search" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
+    <span class="icon-close" aria-hidden="true"></span>
+  </button>
+  <div class="m-search__content">
+    <form class="m-search__form">
+      <div class="pos-relative">
+        <span class="icon-search m-search-icon" aria-hidden="true"></span>
+        <label for="search-input" class="sr-only">
+          Type to search
+        </label>
+        <input id="search-input" type="text" class="m-input in-search js-input-search" placeholder="Type to search">
+      </div>
+    </form>
+    <div class="js-search-results hide"></div>
+    <p class="m-not-found align-center hide js-no-results">
+      No results for your search, please try with something else.
+    </p>
+  </div>
+</div>
+
+    
+<footer class="m-footer">
+  <div class="m-footer__content">
+    <p class="m-footer-copyright">
+      <span>Hmlet Blog &copy; 2021</span>
+      <span>&nbsp; &bull; &nbsp;</span>
+      <span>Published with <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a></span>
+    </p>
+
+    <nav class="m-footer-social">
+        <a href="https://www.facebook.com/hmletSG" target="_blank" rel="noopener" aria-label="Facebook">
+          <span class="icon-facebook" aria-hidden="true"></span>
+        </a>
+        <a href="https://twitter.com/hmlet_official" target="_blank" rel="noopener" aria-label="Twitter">
+          <span class="icon-twitter" aria-hidden="true"></span>
+        </a>
+      <a href="https://hmlet.com/blog/rss" aria-label="RSS">
+        <span class="icon-rss" aria-hidden="true"></span>
+      </a>
+    </nav>
+    <p class="m-footer-copyright jslicense">
+      <a href="../assets/html/javascriptfadb.html?v=62afab51cd" rel="jslicense">JavaScript license information</a>
+    </p>
+  </div>
+</footer>
+
+
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+    <script defer src="../assets/js/manifestfadb.js?v=62afab51cd"></script>
+    <script defer src="../assets/js/vendor/content-api.minfadb.js?v=62afab51cd"></script>
+    <script defer src="../assets/js/vendorfadb.js?v=62afab51cd"></script>
+    <script defer src="../assets/js/appfadb.js?v=62afab51cd"></script>
+
+      <script defer src="../assets/js/postfadb.js?v=62afab51cd"></script>
+
+
+    <style>  
+	.m-footer-copyright { font-family: 'Mulish', sans-serif; font-size: 16px !important; color: #274C82 !important }
+</style>
+  </body>
+
+<!-- Mirrored from www.hmlet.com/blog/reusing-and-recycling-isnt-working-heres-why-we-need-to-reduce/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Jun 2021 09:06:43 GMT -->
+</html>

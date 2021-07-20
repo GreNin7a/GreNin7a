@@ -1,0 +1,46 @@
+* {
+	transition: all 0.25s;
+}
+.out-wrap {
+	position: relative;
+	padding: 30px;
+	width: auto;
+	margin: 30px auto;
+}
+.out-wrap #tabs {
+	border-bottom: 0;
+	margin: 0 -50px 20px;
+	background: #303030;
+	display: flex;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	flex-wrap: nowrap !important;
+}
+.out-wrap #tabs::-webkit-scrollbar {
+	display: none;
+}
+.out-wrap #tabs li {
+	width: auto;
+	white-space: nowrap;
+	flex: 1;
+}
+.out-wrap #tabs li a {
+	border: 0;
+	border-radius: 0;
+	cursor: pointer;
+	margin: 0;
+	color: #fff;
+	text-transform: uppercase;
+}
+.out-wrap #tabs li a:hover {
+	background: #ddd;
+	color: #303030;
+}
+.out-wrap #tabs li.active a {
+	background: #ff7846;
+	color: #3d5a68;
+}
+.out-wrap .tab-content {
+	overflow: hidden !important;
+}
